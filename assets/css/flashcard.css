@@ -164,4 +164,51 @@
 }
 
 
+/* Flashcard_pratice */
+
+.flashcard_view_container {
+    display: flex;
+    margin-top: 100px;
+}
+
+.flashcard_view {
+    background-color: #032862a6;
+    height: 300px;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+}
+
+.flashcard_view_content {
+    margin: auto;
+    font-size: 2.8rem;
+    color: #f0eeee;
+}
+
+.flashcard_view_control {
+
+    margin: 50px auto;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.control_flashcard-icon {
+    font-size: 2rem;
+}
+
+.control-btn {
+    display: block;
+    margin: auto;
+    padding: 16px;
+    background: none;
+    border: 0.5px solid #032862a6;
+    border-radius: 3px;
+    cursor: pointer;
+
+} 
+
 
