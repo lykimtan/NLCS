@@ -4,13 +4,16 @@
    margin: 0;
 }
 
+body {
+   min-height: 100vh;
+}
+
 html{
    background: linear-gradient(90deg, #5CB7CC  0%,#2E5C66 100%);
     font-size: 62.5%;
     line-height: 1.6 rem;
     font-family: 'ReadexPro', sans-serif;
-    box-sizing: border-box;
- 
+    box-sizing: border-box; 
 }
 
 #header {

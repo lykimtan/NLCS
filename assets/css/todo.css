@@ -1,0 +1,113 @@
+
+.container_todo{
+    width : 100%;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+    padding-bottom: 100px;
+}
+
+.To-do_app{ 
+    max-width: 850px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 300px;
+    border-radius: 10px ;
+}
+
+.todo_title {
+    color:#f9ecec;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.todo_title-img {
+    width: 90px;
+    transform: translateY(20px);
+}
+
+
+.To-do_app img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.input_task{
+    flex: 1;
+    border: none;
+    font-size: 1.8rem;
+    outline: none;
+    background: transparent;
+    padding: 20px;
+    font-weight: 14px;
+}
+
+.add_task{
+    border: none;
+    outline: none;
+    padding: 20px 50px;
+    background: #3e7b89;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.list_tasks li{
+    list-style: none;
+    font-size: 1.8rem;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.list_tasks li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(/assets/img/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+.list_tasks li.checked{
+    color: #555;
+    text-decoration:line-through ;
+}
+
+.list_tasks li.checked::before{
+    background-image: url(/assets/img/checked.png);
+}
+
+.list_tasks li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.list_tasks li span:hover{
+    background: #edeef0;
+}
+

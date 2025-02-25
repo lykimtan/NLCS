@@ -75,9 +75,7 @@ body {
 
 
 
-.text-content_description{
-  
-}
+
 
 
 .content-img{
@@ -103,7 +101,7 @@ footer {
 
 .footer-pre {
    height: 80px;
-   background: #a9d7f3;
+   background: #1374b02b;
    display: flex;
 }
 
@@ -145,6 +143,7 @@ footer {
    height: 200px;
    border-top: 2px solid #fff;
    display: flex;
+   background: linear-gradient(90deg, #15BCB5, #4E92A4);
 }
 
 .input-letter-btn{
@@ -164,12 +163,10 @@ footer {
    background-color: aliceblue;
    border-top: 2px solid #97b3c4 ;
    display: flex;
-}
-
-.footer_content {
-   display: flex;
    border-radius: 20px;
 }
+
+
 
 .footer_content-title {
    padding-top: 20px;

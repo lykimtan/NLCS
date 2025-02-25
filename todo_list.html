@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="./assets/img/logo.webp" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/flashcard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
+    <link rel="stylesheet" href="./assets/css/todo.css">
     <title>Document</title>
 </head>
 
@@ -31,39 +31,31 @@
     </nav>
 
   </header>
-
-  <div class="container_flashcard">
-
-    <div class="flashcard_view_container">
-        <div class="flashcard_view">
-            <p class="flashcard_view_content">
-                Hello, this is flashcard
-            </p>
-        </div>
-    </div>
-
-    <div class="flashcard_view_control">
-        <button class="control-btn">
-            <i class="fa-solid fa-backward-step control_flashcard-icon"></i>
-        </button>
-
-        <button class="control-btn">
-            <i class="fa-regular fa-hand-back-fist control_flashcard-icon"></i>
-        </button>
-
-        <button class="control-btn">
-            <i class="fa-solid fa-forward-step control_flashcard-icon"></i>
-        </button>
-    </div>
-
-
-
+  <div class="todo_title">
+    <h2>To-Do List <img class="todo_title-img" src="./assets/img/icon.png" alt=""></h2>
   </div>
+
+
+    <div class="container_todo_app">
+        <div class="To-do_app">
+            <div class="row">
+                <input class="input_task" type="text" id="input_box" placeholder="Add your text">
+                <button class="add_task" onclick="AddTask()" >ADD</button>
+            </div>
+
+            <ul class="list_tasks" id="list_container">
+             
+            </ul>
+        </div>
+    </div>  
+
 
 
   <!-- Footer -->
 
-  <footer>
+</body>
+<script src="./assets/js/script.js"></script>
+<footer>
     <div class="footer-pre">
 
       <form action="" class="footer-form">
@@ -96,10 +88,10 @@
               </li>
 
               <li class="footer_content-info-item">
-                 <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                 <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
               </li>
               <li class="footer_content-info-item">
-                 <a target="_blank" href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+                 <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
               </li>
             </ul>
 
@@ -110,6 +102,5 @@
           </div>
       </div>
     </div>
-  </footer>
-</body>
+</footer>
 </html>
