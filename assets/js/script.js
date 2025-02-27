@@ -1,7 +1,8 @@
 
 const inputBox = document.getElementById("input_box");
 const listContainer = document.getElementById("list_container");
-
+const audio = document.querySelector('#checked_sound')
+audio.playbackRate = 2
 function AddTask(){
     if(inputBox.value ==='')
     {
@@ -26,6 +27,7 @@ listContainer.addEventListener("click",function(e)
     if(e.target.tagName ==="LI")
     {
        e.target.classList.toggle("checked");
+       audio.play();
        saveData();
     }
     else if(e.target.tagName ==="SPAN")

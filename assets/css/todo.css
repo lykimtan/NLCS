@@ -3,14 +3,14 @@
     width : 100%;
     background: linear-gradient(135deg, #153677, #4e085f);
     padding: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
 }
 
 .To-do_app{ 
     max-width: 850px;
-    background: #fff;
+    background: none;
     margin: 100px auto 20px;
-    padding: 40px 30px 300px;
+    padding: 40px 30px 200px;
     border-radius: 10px ;
 }
 
@@ -70,6 +70,8 @@
     user-select: none;
     cursor: pointer;
     position: relative;
+    box-shadow: 1px 1px 1px rgba(3, 3, 3, 0.3);
+    border-radius: 3px;
 }
 
 .list_tasks li::before{
@@ -83,6 +85,7 @@
     background-position: center;
     top: 12px;
     left: 8px;
+    transform: translateY(-5px);
 }
 
 .list_tasks li.checked{
@@ -101,13 +104,18 @@
     width: 40px;
     height: 40px;
     font-size: 22px;
-    color: #555;
+    color: #f0ebeb;
     line-height: 40px;
     text-align: center;
-    border-radius: 50%;
+    border: 5px;
+
 }
 
 .list_tasks li span:hover{
     background: #edeef0;
+    color: #555;
 }
 
+audio {
+    display: none;
+}
