@@ -2,6 +2,7 @@
 .container_sign-in {
     display: flex;
     height: 100vh;
+    animation: appear linear .2s ;
     
 }
 
@@ -16,6 +17,7 @@
     border-left: 2px solid #fff;
     border-right: 2px solid #fff;
     padding: 20px 0;
+   
     
 }
 
@@ -28,6 +30,16 @@
     flex-direction: column;
     align-items: center;
 }
+
+.register_content-item-left {
+    animation: slide-left linear .5s;
+}
+
+.register_content-item-right {
+    animation: slide-right linear .5s;
+}
+
+
 
 .register_content-item:first-child {
     border-right: 2px solid #bcb9b9; 
@@ -128,6 +140,43 @@
     text-align: center;
     text-decoration: none;
 }
+
+
+@keyframes appear {
+    from {
+        transform: translateY(-500px);
+        opacity: 0; 
+        scale: 0.5; 
+    }
+
+    to {
+        transform: translateY(30px);
+        opacity: 1;
+        scale: 1;
+    };
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(-300px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(300px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
 
 
 
