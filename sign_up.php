@@ -23,8 +23,17 @@
                 <h2 class="form_title">ĐĂNG KÝ</h2>
                 <form id="formreg" action="./database/signUpHandle.php" class="get-info-form" method="POST">
                     <input onblur="validateUsername(this)" id="username" name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
-                    <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
-                    <input id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" type="password" class="get_password">
+
+                    <div class="container-input">
+                      <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
+                      <span><i id='eyeicon' onclick="showpass(inputfield,this)" class="showpass fa-solid fa-eye-slash"></i></span>
+                    </div>
+
+                    <div class="container-input">
+                       <input id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" type="password" class="get_password">
+                      <span><i id='reeyseicon' onclick="showpass(repassword,this)" class="showpass fa-solid fa-eye-slash"></i></span>
+                    </div>
+
                     <div class="form-btn">
                     <button name="postbtn" class="get-info_btn">Đăng ký</button>
                     </div>
@@ -49,6 +58,28 @@
     
     </div>
     <script src="./assets/js/validator.js"></script>
+
+    <script>
+        var inputfield = document.getElementById('password');
+        var reinputfield = document.getElementById('repassword');
+
+    function showpass(element,icon) {
+            if(element.type === 'password')
+            {
+                element.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+
+            }
+            else {
+                element.type ='password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+       }
+
+
+    </script>
 
 </body>
 </html> 

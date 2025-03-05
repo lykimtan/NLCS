@@ -33,7 +33,10 @@
                 <h2 class="form_title">ĐĂNG NHẬP</h2>
                 <form action="./database/signInHandle.php" class="get-info-form" method="post">
                     <input name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
-                    <input name="password" placeholder="Mật khẩu" type="password" class="get_password">
+                    <div class="container-input">
+                      <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
+                      <span><i id='eyeicon' onclick="showpass(inputfield,this)" class="showpass fa-solid fa-eye-slash"></i></span>
+                    </div>
                     <div class="form-btn">
                         <button class="get-info_btn"><a class="get-info_link" href="./sign_up.php">Đăng ký</a></button>
                         <button type="submit" class="get-info_btn">Đăng nhập</button>
@@ -46,6 +49,30 @@
         </div>
     
     </div>
+
+    <script>
+        var inputfield = document.getElementById('password');
+
+       
+
+        function showpass(element,icon) {
+            if(element.type === 'password')
+            {
+                element.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+
+            }
+            else {
+                element.type ='password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+       }
+
+
+    </script>
+
 
 </body>
 </html>

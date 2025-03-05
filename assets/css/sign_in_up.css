@@ -149,6 +149,24 @@
     color: white;
 }
 
+.get_password {
+    display: block;
+    width: 100%;
+}
+
+.container-input {
+    width: 80%;
+    position: relative;
+}
+
+.container-input i {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
 
 
 
