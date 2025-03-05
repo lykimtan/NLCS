@@ -18,15 +18,36 @@
   <header id="header">
 
     <nav>
-      <a href="./flashcard.html" class="nav-item">FLASHCARD</a>
-      <a href="./todo_list.html" class="nav-item">TO-DO LIST</a>
+      <div class="nav_item-container flashcard-container">
+        <a href="./flashcard.html" class="nav-item">FLASHCARD</a>
+
+        <ul class="flashcard-list">
+          <li class="flashcard-list_item"><a href="./flashcard.html" class="flashcard-list_item-link">Tạo bộ Flashcard</a></li>
+          <li class="flashcard-list_item"><a href="./flashcard_practice.html" class="flashcard-list_item-link">Luyện tập Flashcard</a></li>
+        </ul>
+
+      </div>
+      
+      <div class="nav_item-container">
+        <a href="./todo_list.html" class="nav-item">TO-DO LIST</a>
+      </div>
       <div class="logo">
         <a href="./index.html"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
       </div>
-      <a href="./podomoro.html" class="nav-item">POMODORO</a>
+
+      <div class="nav_item-container">
+        <a href="./podomoro.html" class="nav-item">POMODORO</a>
+      </div>
+
       <div class="account">
         <a href="" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.png" alt="" class="acc-img">
+
+        <ul class="account-list">
+          <li class="account-list_item"><a href="./sign_in.php" class="account-list_item-link">Đăng nhập</a></li>
+          <li class="account-list_item"><a href="./sign_up.php" class="account-list_item-link">Đăng ký tài khoản</a></li>
+        </ul>
+
       </div>
     </nav>
   </header>

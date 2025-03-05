@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
-    <title>Document</title>
+    <title>Đăng ký tài khoản</title>
 </head>
 
 <body>
@@ -21,12 +21,12 @@
 
             <div class="register_content-item  register_content-item-left">
                 <h2 class="form_title">ĐĂNG KÝ</h2>
-                <form action="" class="get-info-form">
-                    <input placeholder="Tên đăng nhập" type="text" class="user_name">
-                    <input placeholder="Mật khẩu" type="password" class="get_password">
-                    <input placeholder="Nhập lại mật khẩu" type="password" class="get_password">
+                <form id="formreg" action="./database/signUpHandle.php" class="get-info-form" method="POST">
+                    <input onblur="validateUsername(this)" id="username" name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
+                    <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
+                    <input id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" type="password" class="get_password">
                     <div class="form-btn">
-                    <button class="get-info_btn">Đăng ký</button>
+                    <button name="postbtn" class="get-info_btn">Đăng ký</button>
                     </div>
                 </form>
 
@@ -34,9 +34,9 @@
 
 
             <div class="register_content-item register_content-item-right">
-                <div class="content_img">
+                <a class="content_img" href="./index.html">
                     <img  src="./assets/img/logo.webp" alt="" class="content_img-item">
-                </div>
+                </a>
 
                 <div class="content_text">
                     <p class="content_text-des">Let's go <i class="fa-solid fa-shoe-prints"></i></p>
@@ -48,6 +48,7 @@
         </div>
     
     </div>
+    <script src="./assets/js/validator.js"></script>
 
 </body>
 </html> 

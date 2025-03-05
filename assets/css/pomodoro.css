@@ -94,14 +94,17 @@
     display: flex;
     margin: 10px auto;
     background: white;
-    padding: 0 5px;
     color: tomato;
     border-radius: 8px;
 }
 
 .modify-show {
+    text-align: center;
+    width: 100%;
     margin: auto;
     font-size: 4rem;
+    padding-left: 16px;
+    color: tomato;
 }
 
 
@@ -120,6 +123,11 @@
     font-size: 2rem;
     color: white;
 }
+
+audio {
+    display: none;
+}
+
 
 
 

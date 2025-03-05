@@ -45,6 +45,9 @@
     border-right: 2px solid #bcb9b9; 
 }
 
+.content_img {
+    display: block;
+}
 
 
 .content_img-item {
@@ -71,7 +74,7 @@
     margin-top: 10%;
     text-align: center;
     font-size: 5rem;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 20px;
 }
 
@@ -79,7 +82,7 @@
 .form_title {
     margin-top: 60px;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     opacity: 0.9;
     font-size: 3rem;
     letter-spacing: 4px;
@@ -120,7 +123,7 @@
 
 .get-info_btn {
     font-size: 1.6rem;
-    color: #cfcccc;
+    color: white;
     display: block;
     padding: 20px;
     background: none;
@@ -140,6 +143,15 @@
     text-align: center;
     text-decoration: none;
 }
+
+.get-info_link {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
 
 
 @keyframes appear {

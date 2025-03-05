@@ -3,10 +3,18 @@ const inputBox = document.getElementById("input_box");
 const listContainer = document.getElementById("list_container");
 const audio = document.querySelector('#checked_sound')
 audio.playbackRate = 2
+
+
+document.getElementById("input_box").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        AddTask();
+    }
+});
+
 function AddTask(){
     if(inputBox.value ==='')
     {
-        alert("You must write something!");
+        alert("Bạn không được để trống ô công việc !");
     }
 
     else{
@@ -36,6 +44,7 @@ listContainer.addEventListener("click",function(e)
         saveData();
     }
 },false);
+
 
 
 function saveData()

@@ -64,14 +64,15 @@
 }
 
 .list_tasks li{
+    color: #edeef0;
     list-style: none;
-    font-size: 1.8rem;
-    padding: 12px 8px 12px 50px;
+    font-size: 2rem;
+    padding: 15px 8px 15px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
     box-shadow: 1px 1px 1px rgba(3, 3, 3, 0.3);
-    border-radius: 3px;
+    border-radius: 6px;
 }
 
 .list_tasks li::before{
@@ -85,7 +86,7 @@
     background-position: center;
     top: 12px;
     left: 8px;
-    transform: translateY(-5px);
+    /* transform: translateY(px); */
 }
 
 .list_tasks li.checked{
@@ -98,17 +99,17 @@
 }
 
 .list_tasks li span{
+    transform: translateY(-2px);
     position: absolute;
     right: 0;
-    top: 5px;
+    top: 8px;
     width: 40px;
     height: 40px;
     font-size: 22px;
     color: #f0ebeb;
     line-height: 40px;
     text-align: center;
-    border: 5px;
-
+    border-radius: 8px;
 }
 
 .list_tasks li span:hover{

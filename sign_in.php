@@ -19,24 +19,24 @@
 
         <div class="register_content ">
             <div class="register_content-item register_content-item-left ">
-                <div class="content_img">
+                <a class="content_img" href="./index.html">
                     <img  src="./assets/img/logo.webp" alt="" class="content_img-item">
-                </div>
+                </a>
 
                 <div class="content_text">
                     <p class="content_text-des">Mọi hành trình vạn dặm bắt đầu từ một bước chân <i class="fa-solid fa-shoe-prints"></i></p>
-                    <h3 class="content_text-title">BE BETTERR</h3>
+                    <h3 class="content_text-title">BE BETTER</h3>
                 </div>
             </div>
 
             <div class="register_content-item register_content-item-right">
                 <h2 class="form_title">ĐĂNG NHẬP</h2>
-                <form action="" class="get-info-form">
-                    <input placeholder="Tên đăng nhập" type="text" class="user_name">
-                    <input placeholder="Mật khẩu" type="password" class="get_password">
+                <form action="./database/signInHandle.php" class="get-info-form" method="post">
+                    <input name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
+                    <input name="password" placeholder="Mật khẩu" type="password" class="get_password">
                     <div class="form-btn">
-                        <button class="get-info_btn">Đăng ký</button>
-                    <button class="get-info_btn">Đăng nhập</button>
+                        <button class="get-info_btn"><a class="get-info_link" href="./sign_up.php">Đăng ký</a></button>
+                        <button type="submit" class="get-info_btn">Đăng nhập</button>
                     </div>
                     <p class="forgot_password"><a class="forgot_password-link" href="">Quên mật khẩu ?</a></p>
                 </form>

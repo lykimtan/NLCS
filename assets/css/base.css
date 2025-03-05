@@ -39,6 +39,83 @@ nav {
 
 }
 
+.flashcard-container {
+   position: relative;
+}
+
+.flashcard-container:hover .flashcard-list {
+   display:block;
+}
+
+.flashcard-list {
+   box-shadow: 2px 2px 2px rgba(3,3,3,0.4);
+   margin-left: 10px;
+   position: absolute;
+   width: 180px;
+   background: white;
+   list-style: none;
+   border-radius: 5px;
+   top: 52px;
+   display: none;
+}
+
+
+
+
+.flashcard-list_item, .account-list_item  {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.flashcard-list_item:first-child, .account-list_item:first-child  {
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+.flashcard-list_item:last-child , .account-list_item:last-child{
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+
+
+
+.flashcard-list::after {
+   content: "";
+   position: absolute;
+   left: 30px;
+   top: -30px;
+   border-radius: 5px;
+   border-width: 16px 16px;
+   border-style: solid;
+   border-color: transparent transparent rgb(255, 255, 255) transparent;
+}
+
+.flashcard-list_item:hover {
+   background: rgb(231, 230, 230);
+}
+
+
+
+
+
+.flashcard-list_item-link {
+   padding: 16px;
+   display: flex;
+   text-decoration: none;
+   width: 100%;
+}
+
+.flashcard-list_item-link:hover {
+   color: #086a65;
+}
+
+.flashcard-list_item-link:last-child {
+   border-top: 1px solid #15BCB5;
+}
+
+
+
+
 .nav-item {
  display: block;
  font-size: 1.8rem;
@@ -81,7 +158,67 @@ nav {
 .account {
  display: flex;
  align-items: center;
+ position: relative;
 }
+
+.account-list {
+   box-shadow: 2px 2px 2px rgba(3,3,3,0.4);
+   margin-left: 10px;
+   position: absolute;
+   width: 180px;
+   background: white;
+   list-style: none;
+   border-radius: 5px;
+   top: 52px;
+   display: none;
+}
+
+.account-list::after {
+   content: "";
+   position: absolute;
+   left: 30px;
+   top: -30px;
+   border-radius: 5px;
+   border-width: 16px 16px;
+   border-style: solid;
+   border-color: transparent transparent rgb(255, 255, 255) transparent;
+}
+
+.account:hover .account-list {
+   display: block;
+}
+
+
+
+
+.account-list_item:first-child {
+   border-bottom: 1px solid #15BCB5;
+}
+
+
+
+.account-list_item {
+   font-size: 1.8rem;
+   padding: 16px;
+
+}
+
+.account-list_item-link {
+   color: #2E5C66;
+   display: block;
+   width: 100%;
+   text-decoration: none;
+
+}
+
+
+.account-list_item:hover {
+   color: #15BCB5;
+   background: rgb(231, 230, 230);
+}
+
+
+
 
 
 
