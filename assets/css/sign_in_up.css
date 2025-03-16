@@ -8,7 +8,7 @@
 
 .register_content {
     margin: auto;
-    height: 500px;
+    height: 600px;
     width: 60%;
     background: linear-gradient(90deg, #2E5C66  0%,#2f7281 100%);
     border-radius: 20px;
@@ -17,8 +17,6 @@
     border-left: 2px solid #fff;
     border-right: 2px solid #fff;
     padding: 20px 0;
-   
-    
 }
 
 
@@ -99,7 +97,7 @@
     align-items: center;
 }
 
-.user_name, .get_password {
+.user_name, .get_password, .email {
     color: #fff;
     width: 80%;
     display: block;
@@ -111,7 +109,7 @@
     border-bottom: 2px solid #a2d5e0;
 }
 
-.user_name::placeholder, .get_password::placeholder {
+.user_name::placeholder, .get_password::placeholder, .email::placeholder {
     color: #cfcccc;
 }
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +18,13 @@
 
     <div class="container_sign-in">
 
-        <div class="register_content ">
+        <div class="register_content">
 
             <div class="register_content-item  register_content-item-left">
                 <h2 class="form_title">ĐĂNG KÝ</h2>
                 <form id="formreg" action="./database/signUpHandle.php" class="get-info-form" method="POST">
+                    <input name="email" placeholder="Email" type="email" class="email">   
                     <input onblur="validateUsername(this)" id="username" name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
-
                     <div class="container-input">
                       <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
                       <span><i id='eyeicon' onclick="showpass(inputfield,this)" class="showpass fa-solid fa-eye-slash"></i></span>
@@ -43,7 +44,7 @@
 
 
             <div class="register_content-item register_content-item-right">
-                <a class="content_img" href="./index.html">
+                <a class="content_img" href="./index.php">
                     <img  src="./assets/img/logo.webp" alt="" class="content_img-item">
                 </a>
 
@@ -57,9 +58,33 @@
         </div>
     
     </div>
-    <script src="./assets/js/validator.js"></script>
 
-    <script>
+
+    <!-- <script>    
+    document.getElementById("formreg").addEventListener("submit", function(event) {
+    let email = document.querySelector(".email").value.trim();
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let repassword = document.getElementById("repassword").value.trim();
+    let errorMessage = "";
+
+    if (!email || !username || !password || !repassword) {
+        errorMessage = "Hãy điền đầy đủ thông tin bạn nhé !";
+    }
+    else if (password !== repassword) {
+        errorMessage = "Mật khẩu nhập lại của bạn không khớp";
+    }
+    else if (password.length < 6) {
+        errorMessage = "Mật khẩu phải có ít nhất 6 ký tự";
+    }
+    if (errorMessage) {
+        event.preventDefault(); 
+        alert(errorMessage); 
+    }
+});
+</script> -->
+
+<script>
         var inputfield = document.getElementById('password');
         var reinputfield = document.getElementById('repassword');
 
@@ -78,8 +103,12 @@
             }
        }
 
+</script>
 
-    </script>
+<script src="./assets/js/showpass.js" ></script>
+<script src='./assets/js/validator.js'>
+
+</script>
 
 </body>
 </html> 

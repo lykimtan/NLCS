@@ -1,3 +1,7 @@
+<?php 
+  session_start(); 
+  include "connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +20,9 @@
 <body>
 
     <div class="container_sign-in">
-
         <div class="register_content ">
             <div class="register_content-item register_content-item-left ">
-                <a class="content_img" href="./index.html">
+                <a class="content_img" href="./index.php">
                     <img  src="./assets/img/logo.webp" alt="" class="content_img-item">
                 </a>
 
@@ -31,7 +34,7 @@
 
             <div class="register_content-item register_content-item-right">
                 <h2 class="form_title">ĐĂNG NHẬP</h2>
-                <form action="./database/signInHandle.php" class="get-info-form" method="post">
+                <form action="./database/signInHandle.php" class="get-info-form" method="post" id="formLog">
                     <input name="username" placeholder="Tên đăng nhập" type="text" class="user_name">
                     <div class="container-input">
                       <input id="password" name="password" placeholder="Mật khẩu" type="password" class="get_password"> 
@@ -39,7 +42,7 @@
                     </div>
                     <div class="form-btn">
                         <button class="get-info_btn"><a class="get-info_link" href="./sign_up.php">Đăng ký</a></button>
-                        <button type="submit" class="get-info_btn">Đăng nhập</button>
+                        <button type="submit" name="submit" class="get-info_btn">Đăng nhập</button>
                     </div>
                     <p class="forgot_password"><a class="forgot_password-link" href="">Quên mật khẩu ?</a></p>
                 </form>
@@ -50,29 +53,45 @@
     
     </div>
 
+
+    <script src="./assets/js/showpass.js" ></script>
     <script>
-        var inputfield = document.getElementById('password');
+       document.getElementById("formLog").addEventListener("submit", function(event) {
+        let username = document.getElementById("username").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let errorMessage = "";
 
-       
-
-        function showpass(element,icon) {
-            if(element.type === 'password')
-            {
-                element.type = 'text';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-
-            }
-            else {
-                element.type ='password';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            }
-       }
-
+        if (!username || !password) {
+            errorMessage = "Hãy điền đầy đủ thông tin bạn nhé !";
+        }
+        else if (password.length < 6) {
+            errorMessage = "Mật khẩu phải có ít nhất 6 ký tự";
+        }
+        if (errorMessage) {
+            event.preventDefault(); 
+            alert(errorMessage); 
+    }
+   });
 
     </script>
-
-
+    
+    <!-- <?php 
+        // if(isset($_POST['submit'])) {
+        //     $u_name =$_POST['username'];
+        //     $password = $_POST['password'];
+        //     $sql = "select uid, username from users where username='{$u_name}' and password = '{$password}' ";
+        //     $reg=$connect->query($sql);
+        //     if($reg->num_rows > 0)
+        //     {
+        //         $row=$reg->fetch_assoc();
+        //         $_SESSION["uid"]=$row["uid"];
+        //         $_SESSION["username"] = $row["username"];
+        //         header("Location: index.php");
+        //     }
+        //     else {
+        //         echo "<div>Thông tin đăng nhập sai<div>";
+        //     }
+        // }
+     ?> -->
 </body>
 </html>

@@ -45,6 +45,7 @@ nav {
 
 .flashcard-container:hover .flashcard-list {
    display:block;
+
 }
 
 .flashcard-list {
@@ -57,6 +58,7 @@ nav {
    border-radius: 5px;
    top: 52px;
    display: none;
+   z-index: 10;
 }
 
 

@@ -1,3 +1,58 @@
+
+<?php
+    session_start();
+    include_once('./database/connect.php');
+    $username = $_SESSION['username'] ?? 'Username'; // Kiểm tra username có tồn tại không
+?>
+
+<script>
+
+  
+document.addEventListener("DOMContentLoaded", function () {
+    let username = "<?php echo addslashes($username); ?>";
+    if(username!='Username') {
+      alert("Xin chào, " + username);
+    let userInfo = document.querySelector(".user-inf");
+    if (userInfo) {
+      let accList = document.querySelector(".account-list");
+    userInfo.innerText = username;
+
+    // Tạo phần tử <li> cho Đăng xuất
+    let newListItem = document.createElement("li");
+    newListItem.className = "account-list_item";
+
+    // Tạo phần tử <a> cho Đăng xuất
+    let newLink = document.createElement("a");
+    newLink.href = "./database/logout.php";
+    newLink.className = "account-list_item-link";
+    newLink.textContent = "Đăng xuất";
+
+    // Thêm <a> vào <li>
+    newListItem.appendChild(newLink);
+
+     // Tạo phần tử <li> cho Đổi mật khẩu
+     let newPasswordItem = document.createElement("li");
+    newPasswordItem.className = "account-list_item";
+
+    // Tạo phần tử <a> cho Đổi mật khẩu
+    let newLinkPass = document.createElement("a");
+    newLinkPass.href = "changepass.php"; 
+    newLinkPass.className = "account-list_item-link";
+    newLinkPass.textContent = "Đổi mật khẩu";
+
+    // Thêm <a> vào <li>
+    newPasswordItem.appendChild(newLinkPass);
+
+    // Xóa tất cả nội dung cũ và thêm hai mục mới
+    accList.replaceChildren(newListItem, newPasswordItem);
+     }
+    }
+   
+
+   
+});
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +65,7 @@
     <link rel="stylesheet" href="./assets/css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
-    <title>Document</title>
+    <title>Trang chủ</title>
 </head>
 
 <body>
@@ -19,29 +74,29 @@
 
     <nav>
       <div class="nav_item-container flashcard-container">
-        <a href="./flashcard.html" class="nav-item">FLASHCARD</a>
+        <a href="./flashcard.php" class="nav-item">FLASHCARD</a>
 
         <ul class="flashcard-list">
-          <li class="flashcard-list_item"><a href="./flashcard.html" class="flashcard-list_item-link">Tạo bộ Flashcard</a></li>
-          <li class="flashcard-list_item"><a href="./flashcard_practice.html" class="flashcard-list_item-link">Luyện tập Flashcard</a></li>
+          <li class="flashcard-list_item"><a href="./flashcard.php" class="flashcard-list_item-link">Tạo bộ Flashcard</a></li>
+          <li class="flashcard-list_item"><a href="./flashcard_practice.php" class="flashcard-list_item-link">Luyện tập Flashcard</a></li>
         </ul>
 
       </div>
       
       <div class="nav_item-container">
-        <a href="./todo_list.html" class="nav-item">TO-DO LIST</a>
+        <a href="./todo_list.php" class="nav-item">TO-DO LIST</a>
       </div>
       <div class="logo">
-        <a href="./index.html"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
+        <a href="#"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
       </div>
 
       <div class="nav_item-container">
-        <a href="./podomoro.html" class="nav-item">POMODORO</a>
+        <a href="./podomoro.php" class="nav-item">POMODORO</a>
       </div>
 
       <div class="account">
         <a href="" class="nav-item user-inf">User's name</a>
-        <img src="./assets/img/user_16111390.png" alt="" class="acc-img">
+        <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
           <li class="account-list_item"><a href="./sign_in.php" class="account-list_item-link">Đăng nhập</a></li>
@@ -202,7 +257,7 @@
             <div class="footer_content_block">
               
               <div class="footer_content_block-img">
-                <img class="footer_content_block-img-ỉtem" src="./assets/img/logo.webp" alt="">
+                <img class="footer_content_block-img-item" src="./assets/img/logo.webp" alt="">
               </div>
 
               <div class="footer_content_block-text">

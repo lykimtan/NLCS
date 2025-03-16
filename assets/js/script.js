@@ -1,4 +1,3 @@
-
 const inputBox = document.getElementById("input_box");
 const listContainer = document.getElementById("list_container");
 const audio = document.querySelector('#checked_sound')
