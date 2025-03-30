@@ -87,13 +87,13 @@ footer {
 }
 
 .footer_content {
-   height: 100%;
    width: 80%;
    margin: 0 auto;
    background-color: aliceblue;
    border-top: 2px solid #97b3c4 ;
    display: flex;
    border-radius: 20px;
+   height: 120%;
 }
 
 .footer_content_block {
@@ -164,6 +164,31 @@ footer {
    font-size: 1.8rem;
    padding-top: 10px;
    color: #2a5d6b;
+}
+
+.footer_content_item {
+   text-align: center;
+   color: #2a5d6b;
+   font-size: 1.6rem;
+   font-weight: 600;
+}
+
+.block_img_feature {
+   display: flex;
+   flex-wrap: wrap; /* Để đảm bảo ảnh không bị tràn nếu kích thước nhỏ */
+   gap: 0;
+}
+
+.img_item_feature {
+   text-align: center;
+   max-width: 50%; 
+   margin-top: 5px;
+}
+
+.img_feature {
+   width: 45%; 
+   height: auto; 
+   border-radius: 10px;
 }
 
 

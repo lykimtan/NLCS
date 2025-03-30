@@ -1,0 +1,488 @@
+.container_create_post, #editPostModal {
+    display: flex;
+    flex-direction: column;
+    display: block;
+    width: 100%;
+    min-height: 700px;
+    margin: auto;
+}
+
+h1 {
+   text-align: center;
+   color: white;
+   font-size: 3rem;
+}
+
+.post_posts {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(11, 98, 96);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    animation: fade_in 0.6s linear;
+    height: 500px;
+}
+
+.post_posts div {
+    margin-bottom: 15px;
+}
+
+.post_posts label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.post_posts input[type="text"],
+.post_posts input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.post_posts input[type="file"] {
+    background: #fff;
+    padding: 8px;
+}
+
+.post_posts textarea {
+    background: #fff;
+    padding: 8px;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 200px;
+    font-size: 1.3rem;
+}
+
+.post_posts input::placeholder {
+    color: #999;
+}
+
+.post_posts input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.post_posts button {
+    float: right;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 10px
+}
+
+.post_posts button:hover {
+    background: #0056b3;
+}
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+        transform: translateY(50px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+    
+}
+
+/* Posts forum */
+.container_posts {
+    min-height: 800px;
+    margin: 80px auto;
+    width: 80%;
+}
+
+.create-btn {
+    padding: 10px;
+    border-radius: 50%;
+    transform: translateY(-2px);
+    background: #044947;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.create_post_block {
+    font-size: 2rem;
+
+}
+
+.acount-avatar_link {
+    font-size: 2rem;
+    text-decoration: none;
+    display: block;
+}
+
+.title_link {
+    transform: translateY(-20px);
+}
+
+
+.header_forum_block {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    background: #076d7d;
+    border-radius: 10px;
+    z-index: 1;
+    transform: translateY(10px);
+}
+
+
+.forum_logo {
+    margin-top: 5px;
+    width: 80px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgba(5, 213, 224, 0.5);
+}
+
+.logo_forum {
+    margin: 20px auto;
+    width: 90px; 
+}
+
+.logo_title {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    background: #076d7d;
+    margin: 20px auto;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    width: fit-content;
+    transform: translateX(-25px);
+    box-shadow: 2px 2px 2px rgba(5, 213, 224, 0.5);
+}
+
+.container_forum_block {
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+}
+
+.img_avartar {
+    width: 40px;
+}
+
+/* .logo_forum {
+    width: 80px;
+} */
+
+.container_post {
+    width: 90%;
+    margin: 20px auto;
+    min-height: 300px;
+    background: #e5e2e2;
+    border-radius: 10px;
+
+}
+
+.info_upost {
+    display: flex;
+    margin-left: 30px;
+    padding-top: 10px;
+}
+
+.contain_ifopost {
+    margin-left: 12px;
+    transform: translateY(10px);
+}
+
+.uname {
+    font-size: 1.6rem;
+}
+
+
+.img_user {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.main_contain_post {
+    width: 80%;
+    margin: 0 auto;
+    background: #eff4f3;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.title_post {
+    padding: 10px 5px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.contain_img_post {
+    display: flex;
+}
+
+.img_post {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.comment_title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.contain_comment {
+    background: white;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    min-height: 50px;
+    border-radius: 15px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.contain_content_comment {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.comment-item {
+    background: rgb(235, 229, 229);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 5px 0;
+    font-size: 1.4rem;
+    box-shadow: 2px 2px 2px rgba(2,2,2,0.3);
+    display: flex;
+}
+
+.comment_time_user span {
+    display: block;
+}
+
+.time_comment {
+    margin-top: 2px;
+    font-size: 1rem;
+}
+
+.comment_usernane {
+    font-weight: 500;
+}
+
+
+.content_comment {
+    margin-left: 5px;
+    font-weight: 300;
+}
+
+
+.input_comment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input_comment label {
+    font-weight: bold;
+    color: #333;
+}
+
+.input_coment_item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    width: 83%;
+    margin: 0 auto;
+}
+
+.input_coment_item:focus {
+    border-color: #007bff;
+}
+
+.sbcomment {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.sbcomment:hover {
+    background-color: #0056b3;
+}
+
+.overlay, .over_lay_edit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; 
+    display: none;
+}
+
+/* edit post */
+
+.edit-btn {
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(5, 213, 224, 0.5);
+    background: #0056b3;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    opacity: 0.8;
+}
+.edit_post_area {
+    margin-left: 800px;
+}
+
+.delete_btn {
+    padding: 8px;
+    border: none;
+    background: tomato;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    color: white;
+    box-shadow: 2px 2px 2px rgba(2,2,2,0.3);
+    cursor: pointer;
+}
+
+.delete_btn:hover {
+    opacity: 0.8;
+}
+
+
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-buttons button {
+    margin: 10px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+#confirmDelete {
+    background: red;
+    color: white;
+}
+
+#cancelDelete {
+    background: gray;
+    color: white;
+}
+
+#editPostModal {
+    display: flex;
+    box-shadow: 2px 2px 2px rgba(19, 116, 180, 0.5);
+}
+
+#editPostForm {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+
+.title_edit_form {
+    font-size: 2.3rem;
+}
+
+#editPostForm label {
+    font-size: 1.9rem;
+    margin-top: 10px;
+}
+
+#editTitle {
+    min-height: 50px;
+    font-size: 1.6rem;
+}
+
+#editContent {
+    min-height: 100px;
+    font-size: 1.5rem;
+}
+
+#editPostForm button {
+    background: #076d7d9b;
+    padding: 10px;
+    width: 30%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: none;
+    color: white;
+} 
+
+
+/* Delete_btn_comment */
+.delete-comment-form {
+    margin-left: 50px;
+}
+.delete_btn_comment {
+    padding: 3px;
+    border: none;
+    background: none;
+    margin-left: auto;
+}
+
+.delete_btn_comment:hover {
+    color: red;
+}
+
+
+/* modal delete post */
+
+.modal-content p {
+    font-size: 2rem;
+}

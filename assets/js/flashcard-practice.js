@@ -21,3 +21,12 @@ function closeMenu() {
   document.querySelector(".rotate").addEventListener("click", function () {
     document.querySelector(".flashcard_view").classList.toggle("flipped");
   });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.code === "Space") { 
+        event.preventDefault(); // Ngăn trang bị cuộn khi nhấn Space
+        document.querySelector(".flashcard_view").classList.toggle("flipped");
+    }
+});
+
+

@@ -1,7 +1,6 @@
 const inputBox = document.getElementById("input_box");
 const listContainer = document.getElementById("list_container");
 const audio = document.querySelector('#checked_sound')
-audio.playbackRate = 2
 
 
 document.getElementById("input_box").addEventListener("keydown", function (e) {

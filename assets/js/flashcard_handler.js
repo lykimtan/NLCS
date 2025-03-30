@@ -23,7 +23,7 @@ function saveFlashcard() {
 console.log(cards); // Kiểm tra danh sách thẻ đã lấy được
     
     if (title==='' || descr===""|| cards.length===0) {
-        alert("Vui lòng điền đầy đủ thông tin cho bộ Flashcard!")
+        showModalError('Vui lòng điền đủ thông tin cho bộ flashcard!')
     }
     else {
         var formData = new FormData()
@@ -37,11 +37,35 @@ console.log(cards); // Kiểm tra danh sách thẻ đã lấy được
         .then(response => response.text())
         .then(data => {
             console.log("Server response:", data);  
-            alert(data); 
-            location.reload();
+            if(data =='success') {
+                showModalSuccess();
+                setTimeout(() => location.reload(), 1600);
+            }
+            else{
+                showModalError('Vui lòng đăng nhập để lưu flashcard!')
+            }
+    
         })
         .catch(error => console.error("Lỗi:",error));
     }
+}
+
+function showModalSuccess () {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bộ Flashcard của bạn đã được lưu thành công!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+}
+
+function showModalError (message) {
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: message,
+      });
 }
 
 

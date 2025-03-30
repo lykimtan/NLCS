@@ -6,26 +6,39 @@
 ?>
 
 <script>
-
-  
 document.addEventListener("DOMContentLoaded", function () {
     let username = "<?php echo addslashes($username); ?>";
     if(username!='Username') {
-      alert("Xin chào, " + username);
     let userInfo = document.querySelector(".user-inf");
     if (userInfo) {
       let accList = document.querySelector(".account-list");
     userInfo.innerText = username;
 
+
+    //tao phan tu <li> cho bforum
+    let newforumItem = document.createElement("li");
+    newforumItem.className = "account-list_item";
+
+    //tao phan tu <a> cho bforum
+    let linkforum = document.createElement('a');
+    linkforum.href = "createPost.php";
+    linkforum.className = "account-list_item-link";
+    linkforum.textContent = "Diễn đàn Bforum";
+
+    newforumItem.appendChild(linkforum)
+
+
     // Tạo phần tử <li> cho Đăng xuất
     let newListItem = document.createElement("li");
     newListItem.className = "account-list_item";
 
+    
     // Tạo phần tử <a> cho Đăng xuất
     let newLink = document.createElement("a");
     newLink.href = "./database/logout.php";
     newLink.className = "account-list_item-link";
     newLink.textContent = "Đăng xuất";
+    
 
     // Thêm <a> vào <li>
     newListItem.appendChild(newLink);
@@ -44,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newPasswordItem.appendChild(newLinkPass);
 
     // Xóa tất cả nội dung cũ và thêm hai mục mới
-    accList.replaceChildren(newListItem, newPasswordItem);
+    accList.replaceChildren(newforumItem,newListItem, newPasswordItem);
      }
     }
    
@@ -94,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="./podomoro.php" class="nav-item">POMODORO</a>
       </div>
 
+  
+
       <div class="account">
         <a href="" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
@@ -108,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </header>
 
   <div class="container_home">
+
+        <!-- Swiper Slider -->
 
     <div class="content">
       <div class="content-text">
@@ -261,7 +278,25 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
 
               <div class="footer_content_block-text">
+                  <p class="footer_content_item">BeBetter</p>
+                  <p class="footer_content_item">Các tính năng chính</p>
+                  <div class="block_img_feature">
+                    <div class="img_item_feature">
+                        <a href="./flashcard.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/flashcard_img.jpeg" alt=""></a>
+                    </div>
 
+                    <div class="img_item_feature">
+                       <a href="./todo_list.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/to_do_list.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                        <a href="./podomoro.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/podomoro.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                       <a href="./createPost.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/bforum.jpeg" alt=""></a>
+                    </div>
+                  </div>
               </div>
 
 
@@ -296,4 +331,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </body>
+<script src="./assets/js/sendemail.js"></script>
 </html>

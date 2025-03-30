@@ -14,15 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
       let accList = document.querySelector(".account-list");
     userInfo.innerText = username;
 
+
+    //tao phan tu <li> cho bforum
+    let newforumItem = document.createElement("li");
+    newforumItem.className = "account-list_item";
+
+    //tao phan tu <a> cho bforum
+    let linkforum = document.createElement('a');
+    linkforum.href = "createPost.php";
+    linkforum.className = "account-list_item-link";
+    linkforum.textContent = "Diễn đàn Bforum";
+
+    newforumItem.appendChild(linkforum)
+
+
     // Tạo phần tử <li> cho Đăng xuất
     let newListItem = document.createElement("li");
     newListItem.className = "account-list_item";
 
+    
     // Tạo phần tử <a> cho Đăng xuất
     let newLink = document.createElement("a");
     newLink.href = "./database/logout.php";
     newLink.className = "account-list_item-link";
     newLink.textContent = "Đăng xuất";
+    
 
     // Thêm <a> vào <li>
     newListItem.appendChild(newLink);
@@ -41,13 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     newPasswordItem.appendChild(newLinkPass);
 
     // Xóa tất cả nội dung cũ và thêm hai mục mới
-    accList.replaceChildren(newListItem, newPasswordItem);
-    }
-
-    }
-    else {
-      document.getElementById('break').disabled = true;
-      document.getElementById('session').disabled = true;
+    accList.replaceChildren(newforumItem,newListItem, newPasswordItem);
+     }
     }
    
 
@@ -68,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/toast.css">
-    <title>Document</title>
+    <title>Pomodoro</title>
 </head>
 
 <body>
@@ -77,23 +88,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <nav>
       <div class="nav_item-container flashcard-container">
-        <a href="./flashcard.html" class="nav-item">FLASHCARD</a>
+        <a href="./flashcard.php" class="nav-item">FLASHCARD</a>
 
         <ul class="flashcard-list">
-          <li class="flashcard-list_item"><a href="./flashcard.html" class="flashcard-list_item-link">Tạo bộ Flashcard</a></li>
-          <li class="flashcard-list_item"><a href="./flashcard_practice.html" class="flashcard-list_item-link">Luyện tập Flashcard</a></li>
+          <li class="flashcard-list_item"><a href="./flashcard.php" class="flashcard-list_item-link">Tạo bộ Flashcard</a></li>
+          <li class="flashcard-list_item"><a href="./flashcard_practice.php" class="flashcard-list_item-link">Luyện tập Flashcard</a></li>
         </ul>
 
       </div>
       <div class="nav_item-container">
-        <a href="./todo_list.html" class="nav-item">TO-DO LIST</a>
+        <a href="./todo_list.php" class="nav-item">TO-DO LIST</a>
       </div>
       <div class="logo">
         <a href="./index.php"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
       </div>
 
       <div class="nav_item-container">
-        <a href="./podomoro.html" class="nav-item">POMODORO</a>
+        <a href="./podomoro.php" class="nav-item">POMODORO</a>
       </div>
 
       <div class="account">
@@ -198,7 +209,25 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
 
               <div class="footer_content_block-text">
+                  <p class="footer_content_item">BeBetter</p>
+                  <p class="footer_content_item">Các tính năng chính</p>
+                  <div class="block_img_feature">
+                    <div class="img_item_feature">
+                        <a href="./flashcard.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/flashcard_img.jpeg" alt=""></a>
+                    </div>
 
+                    <div class="img_item_feature">
+                       <a href="./todo_list.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/to_do_list.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                        <a href="./podomoro.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/podomoro.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                       <a href="./createPost.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/bforum.jpeg" alt=""></a>
+                    </div>
+                  </div>
               </div>
 
 
@@ -233,5 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script src="./assets/js/pomodoro.js"></script>
 <script src="./assets/js/toast.js"></script>
+<script src="./assets/js/sendemail.js"></script>
+
 </body>
 </html>

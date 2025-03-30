@@ -47,7 +47,7 @@ function startCountDown(cb) {
 
 
 let timerbreak;
-let timeleftBreak  = 1*60;
+let timeleftBreak  = 5*60;
 
 function startCountBreak() {
     if(timerbreak) clearInterval(timerbreak)

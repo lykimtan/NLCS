@@ -1,15 +1,7 @@
 <?php
     session_start();
     include_once('./database/connect.php');
-    $username = $_SESSION['username'] ?? 'Username'; // Kiểm tra username có tồn tại không
-  //   $uid = $_SESSION['uid'];
-  //   var_dump($_SESSION);
-  //   exit;
-  //   // if (!isset($_SESSION['uid'])) {
-  //   //   echo "Bạn chưa đăng nhập!";
-  //   //   exit;
-  // // }
-  // // var_dump($_session);
+    $username = $_SESSION['username'] ?? 'Username'; 
 ?>
 
 <script>
@@ -21,15 +13,31 @@ document.addEventListener("DOMContentLoaded", function () {
       let accList = document.querySelector(".account-list");
     userInfo.innerText = username;
 
+
+    //tao phan tu <li> cho bforum
+    let newforumItem = document.createElement("li");
+    newforumItem.className = "account-list_item";
+
+    //tao phan tu <a> cho bforum
+    let linkforum = document.createElement('a');
+    linkforum.href = "createPost.php";
+    linkforum.className = "account-list_item-link";
+    linkforum.textContent = "Diễn đàn Bforum";
+
+    newforumItem.appendChild(linkforum)
+
+
     // Tạo phần tử <li> cho Đăng xuất
     let newListItem = document.createElement("li");
     newListItem.className = "account-list_item";
 
+    
     // Tạo phần tử <a> cho Đăng xuất
     let newLink = document.createElement("a");
     newLink.href = "./database/logout.php";
     newLink.className = "account-list_item-link";
     newLink.textContent = "Đăng xuất";
+    
 
     // Thêm <a> vào <li>
     newListItem.appendChild(newLink);
@@ -48,9 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
     newPasswordItem.appendChild(newLinkPass);
 
     // Xóa tất cả nội dung cũ và thêm hai mục mới
-    accList.replaceChildren(newListItem, newPasswordItem);
+    accList.replaceChildren(newforumItem,newListItem, newPasswordItem);
      }
     }
+   
+
+   
 });
 </script>
 <!DOCTYPE html>
@@ -65,7 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="stylesheet" href="./assets/css/flashcard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Flashcard</title>
 </head>
 
 <body>
@@ -251,7 +263,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <div class="footer_content-item">
             <h2 class="footer_content-title">Thông tin trang web</h2>
+            <div class="footer_content_block">
+              
+              <div class="footer_content_block-img">
+                <img class="footer_content_block-img-item" src="./assets/img/logo.webp" alt="">
+              </div>
 
+              <div class="footer_content_block-text">
+                  <p class="footer_content_item">BeBetter</p>
+                  <p class="footer_content_item">Các tính năng chính</p>
+                  <div class="block_img_feature">
+                    <div class="img_item_feature">
+                        <a href="./flashcard.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/flashcard_img.jpeg" alt=""></a>
+                    </div>
+
+                    <div class="img_item_feature">
+                       <a href="./todo_list.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/to_do_list.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                        <a href="./podomoro.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/podomoro.jpeg" alt=""></a>
+                    </div>
+                    
+                    <div class="img_item_feature">
+                       <a href="./createPost.php" class="feature_link"><img class="img_feature" src="http://localhost/NLCS/assets/img/bforum.jpeg" alt=""></a>
+                    </div>
+                  </div>
+              </div>
+
+
+            </div>
           </div>
 
           <div class="footer_content-item">
@@ -264,10 +305,10 @@ document.addEventListener("DOMContentLoaded", function () {
               </li>
 
               <li class="footer_content-info-item">
-                 <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                 <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
               </li>
               <li class="footer_content-info-item">
-                 <a target="_blank" href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+                 <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
               </li>
             </ul>
 
@@ -281,7 +322,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
 
 <script src="./assets/js/flashcard.js"></script>
+<script src="./assets/js/sendemail.js"></script>
 <script src="./assets/js/flashcard_handler.js"></script>
 <script src="./assets/js/flashcard_receive.js"></script>
+<script src="./assets/js/deleteFlashcardset.js"></script>
+
+
+<script src="./assets/js/deleteflashcard_modal.js"></script>
+<script src="./assets/js/editFlashcard.js"></script>
 </body>
 </html>

@@ -30,6 +30,6 @@
             $stmt->execute();
         }
         $stmt->close();
-        echo "Lưu thành công";
+        echo "success";
     }
 ?>
