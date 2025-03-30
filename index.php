@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="stylesheet" href="./assets/css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Trang chủ</title>
 </head>
 

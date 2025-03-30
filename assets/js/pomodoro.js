@@ -20,7 +20,14 @@ let timer;
 var timeleft = 25 * 60;
 
 document.querySelector('.modify-show-session').addEventListener('change',function(){
-    if(this.value >= 60) alert('Thời gian tập trung quá dài sẽ khiến bạn dễ gặp mệt mỏi!')
+    if(this.value >= 60) 
+        {
+            Swal.fire({
+                icon: "info",
+                title: "Nhắc nhở",
+                text: "Thời gian tập trung quá lâu có thể khiến bạn mệt mỏi đấy! Muốn đi đường dài phải tập nghỉ ngắn bạn nhé",
+              });
+        }
     return timeleft = Number(document.querySelector('.modify-show-session').value)*60;
 })
 
@@ -38,7 +45,14 @@ function startCountDown(cb) {
         }
         else if(timeleft===0){
             clearInterval(timer);
-            alert("Time's up!")
+            Swal.fire({
+                title: "Chúc mừng bạn đã hoàn thành một phiên làm việc",
+                text: "Quá giỏi!!",
+                imageUrl: "https://unsplash.it/400/200",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+              });
             cb()
         }
     }
@@ -59,7 +73,14 @@ function startCountBreak() {
         }
         else if(timeleftBreak === 0) {
             clearInterval(timerbreak)
-            alert('Đã hết thời gian giải lao!')
+            Swal.fire({
+                title: "Đã hết thời gian giải lao, tiếp tục làm việc nào",
+                text: "5Ting",
+                imageUrl: "https://unsplash.it/400/200",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+              });
         }
       }
       timerbreak = setInterval(countDownTimerBreak,1000)
@@ -75,7 +96,7 @@ function upDateDisplay() {
 }
 
 function upDateDisplayBreak() {
-    let minute = Math.floor(timeleft / 60)
+    let minute = Math.floor(timeleftBreak / 60)
     let second = timeleftBreak % 60;
     document.querySelector('.timer-primary').textContent
     =`${minute.toString().padStart(2,'0')} : ${second.toString().padStart(2,'0')}`

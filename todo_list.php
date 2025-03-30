@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/todo.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>To-do List</title>
 </head>
 
@@ -223,5 +224,4 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 </footer>
 <script src="./assets/js/sendemail.js"></script>
-
 </html>

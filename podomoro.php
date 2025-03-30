@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/toast.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Pomodoro</title>
 </head>
 

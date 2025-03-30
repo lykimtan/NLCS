@@ -7,6 +7,10 @@ document.querySelector(".footer-form").addEventListener("submit", function (even
       let mailtoLink = `mailto:${recipientEmail}?subject=Newsletter Message&body=${encodeURIComponent(message)}`;
       window.location.href = mailtoLink;
     } else {
-      alert("Please enter a message before sending.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Bạn không được phép để trống nội dung lời nhắn"
+      });
     }
   });
