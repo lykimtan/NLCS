@@ -1,0 +1,192 @@
+.container_info_user {
+    min-height: 800px;
+    display: flex;
+}
+
+.container_boudery {
+    width: 80%;
+    margin: auto;
+    min-height: 600px;
+    background: red;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px rgba(1,1,1,0.6);
+}
+
+/* img user */
+.container_img_info {
+    flex: 1;
+}
+
+.img_info {
+    width: 100%;
+}
+
+
+/* user info */
+
+.container_content_info {
+    flex: 1;
+    background: maroon;
+    display: flex;
+}
+
+.container_inner_content_info {
+    margin: auto auto;
+    height: 95%;
+    width: 90%;
+    background: white;
+    border-radius: 10px;
+}
+
+.contain_img_avartar {
+    width: 100%;  
+    padding-top: 10px;
+}
+
+.img_avartar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgba(116, 115, 115, 0.8);
+}
+
+/* main info */
+
+.contain_info_personal {
+    width: 90%;
+    margin: 20px auto;
+    background: rgba(238, 237, 237, 0.855);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.title_info {
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(12, 83, 99);
+    font-size: 2.2rem;
+}
+
+.contain_main_info {
+    list-style: none;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.main_info_item {
+    padding: 10px;
+}
+
+.title_each_info {
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 163px;
+    display: inline-block;
+    color: rgb(12, 83, 99);
+}
+
+.content_each_info {
+    margin-left: 40px;
+    font-size: 1.6rem;
+}
+
+.title_info_activity {
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(12, 83, 99);
+    font-size: 1.6rem;
+}
+
+.contain_info_activities {
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.contain_info-item {
+  padding: 10px;
+  background:rgb(12, 83, 99) ;
+  color: white;
+  border-radius: 10px;
+}
+
+.title_info_activity_item {
+    text-align: center;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.info_activity {
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+
+/* btn */
+.container_btn {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    margin: 10px auto;
+}
+
+.btn_item {
+    margin-top: 10px;
+    padding: 10px;
+    width: 120px;
+    border-radius: 8px;
+    border: 0.5px solid;
+    background:rgb(14, 99, 118) ;
+    box-shadow: 2px 2px 2px rgba(1,1,1,0.7);
+    cursor: pointer;
+    color: white;
+    font-weight: 400px;
+    font-size: 1.5rem;
+}
+
+.btn_link {
+    text-decoration: none;
+    color: white;
+    font-weight: 400px;
+    font-size: 1.5rem;
+}
+
+.btn_item:hover {
+    opacity: 0.8;
+}
+
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .container_boudery {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+
+  .container_boudery {
+    opacity: 0;
+  }
+  
+  .container_boudery.show {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    opacity: 1;
+  }

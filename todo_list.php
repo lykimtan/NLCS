@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="account">
-        <a href="" class="nav-item user-inf">User's name</a>
+        <a href="./infouser.php" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <audio   id="checked_sound" src="./assets/sound/ding-sound-effect_1.mp3" controls></audio>
         <div class="To-do_app">
             <div class="row">
-                <input class="input_task" type="text" id="input_box" placeholder="Add your text">
+                <input class="input_task" type="text" id="input_box" placeholder="Thêm công việc cho hôm nay ">
                 <button class="add_task" onclick="AddTask()">THÊM</button>
             </div>
 

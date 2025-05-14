@@ -11,6 +11,7 @@
         $stmt->bind_param('i', $id);
 
         if ($stmt->execute()) {
+            echo "<script>alert('Xoá bài viết thành công')</script>";
             header("Location: ../personalAccount.php");
         } else {
             echo"<script>alert('Lỗi không xoá được bài viết')</script>";

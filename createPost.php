@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/createPost.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Document</title>
+    <title>Bforum</title>
 </head>
 
 <body>
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="account">
-        <a href="" class="nav-item user-inf">User's name</a>
+        <a href="./infouser.php" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
@@ -146,14 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="account_block">
             <a href="./personalAccount.php" class="acount-avatar_link">
-                <img class="img_avartar" src="./assets/img/user_16111390.webp" alt="">
+                <span class="perwall">Trang cá nhân</span>
+                <img class="img_avartar" src="./assets/img/avartarpost.png" alt="">
             </a>
         </div>
     </div>
-
-   
-
-
 
         <?php
             $sql = "SELECT posts.id, users.username, posts.title, posts.content, posts.image, posts.created_at 
@@ -170,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="./createPost.php"><img class="forum_logo" src="./assets/img/forum_logo.png" alt=""></a>
                 </div>
 
-                <?php while ($row = $result->fetch_assoc()) { ?>
-                    <div class="container_post">
+              <?php while ($row = $result->fetch_assoc()) { ?>
+                  <div class="container_post">
                         <div class="info_upost">
                             <div class="contain_img_u">
                                 <img src="./assets/img/avartarpost.png" alt="" class="img_user">
@@ -195,52 +192,52 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <p class="title_post"><?php echo htmlspecialchars($row['content']); ?></p>
                             </div>
 
-                              <div class="contain_content_comment">
-                                        <?php
-                                        $post_id = $row['id'];
-                                        $comment_sql = "SELECT comments.id, comments.content, comments.uid, users.username 
-                                                        FROM comments 
-                                                        JOIN users ON comments.uid = users.uid 
-                                                        WHERE comments.post_id = ? 
-                                                        ORDER BY comments.created_at DESC";
-                                        $stmt = $connect->prepare($comment_sql);
-                                        $stmt->bind_param("i", $post_id);
-                                        $stmt->execute();
-                                        $comments_result = $stmt->get_result();
+                          <!-- Khu vực hiển thị bình luận -->
+                        <div class="contain_comment">
 
-                                        while ($comment = $comments_result->fetch_assoc()) {
-                                        ?>
-                                            <div class="comment-item">
-                                                <span class="comment_username"><strong><?php echo htmlspecialchars($comment['username']); ?>:</strong></span>
-                                                <span class="content_comment"><?php echo htmlspecialchars($comment['content']); ?></span>
-                                                
-                                                <?php if ($comment['uid'] == $_SESSION['uid']) { ?>
-                                                    <form method="POST" action="./database/delete_coment.php" class="delete-comment-form">
-                                                        <input type="hidden" name="comment_id" value="<?php echo $comment['id']; ?>">
-                                                        <button type="submit" class="delete-btn delete_btn_comment"><i class="fa-solid fa-delete-left"></i></button>
-                                                    </form>
-                                                <?php } ?>
-                                            </div>
-                                        <?php } ?>
-                                  </div>
-
-                                <form action="./database/handle_comment.php" class="input_comment" method="POST">
-                                    <input type="hidden" name="post_id" value="<?php echo $row['id']; ?>">
-                                    <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?? ''; ?>">
-                                    <input name="content" placeholder="Nhập bình luận ..." type="text" class="input_coment_item">
-                                    <input class="sbcomment" type="submit" value="Đăng">
-                                </form>
-                            </div>
+                          <h2 class="comment_title">COMMENT</h2>
+                          <div id="comment_list_<?= $row['id'] ?>" class="contain_content_comment">
+                        <?php
+                            $post_id = $row['id'];
+                            $comment_sql = "SELECT comments.id, comments.content, comments.uid, users.username 
+                                            FROM comments 
+                                            JOIN users ON comments.uid = users.uid 
+                                            WHERE comments.post_id = ? 
+                                            ORDER BY comments.created_at DESC";
+                            $stmt = $connect->prepare($comment_sql);
+                            $stmt->bind_param("i", $post_id);
+                            $stmt->execute();
+                            $comments_result = $stmt->get_result();
+  
+                            while ($comment = $comments_result->fetch_assoc()) {
+                            ?>
+                                <div class="comment-item" id="comment_<?= $comment['id'] ?>">
+                                    <span class="comment_username"><strong><?php echo htmlspecialchars($comment['username']); ?>:</strong></span>
+                                    <span class="content_comment"><?php echo htmlspecialchars($comment['content']); ?></span>
+                                    
+                                    <?php if ($comment['uid'] == $_SESSION['uid']) { ?>
+                                        <button onclick="deleteComment(<?= $comment['id'] ?>)" class="delete-btn delete_btn_comment">
+                                            <i class="fa-solid fa-delete-left"></i>
+                                        </button>
+                                    <?php } ?>
+                                </div>
+                        <?php } ?>
+                        </div>
+                        </div>
+                    
+  
+                    <!-- Form nhập bình luận -->
+                    <form class="input_comment" onsubmit="postComment(event, <?= $row['id'] ?>)">
+                        <input type="hidden" name="post_id" value="<?= $row['id'] ?>">
+                        <input type="hidden" name="uid" value="<?= $_SESSION['uid'] ?? '' ?>">
+                        <input name="content" placeholder="Nhập bình luận ..." type="text" class="input_coment_item" required>
+                        <input class="sbcomment" type="submit" value="Đăng">
+                    </form>
+                        </div>
                     </div>
                 <?php } ?>
-
             </div>
-
-        
-
-
-        
-
+          </div>
     </div>
 
 
@@ -385,5 +382,82 @@ createbtn.addEventListener("click", function() {
 </script>
 <script src="./assets/js/createPost_validate.js"></script>
 <script src="./assets/js/sendemail.js"></script>
+
+<script>
+  function postComment(event, postId) {
+    event.preventDefault(); 
+
+    let form = event.target;
+    let formData = new FormData(form);
+
+    fetch("./database/handle_comment.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            // Tạo bình luận mới và thêm vào danh sách
+            let commentList = document.getElementById("comment_list_" + postId);
+            let newComment = document.createElement("div");
+            newComment.classList.add("comment-item");
+            newComment.setAttribute("id", "comment_" + data.comment_id);
+            newComment.innerHTML = `
+                <span class="comment_username"><strong>${data.username}:</strong></span>
+                <span class="content_comment">${data.content}</span>
+                <button onclick="deleteComment(${data.comment_id})" class="delete-btn delete_btn_comment">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            `;
+            commentList.prepend(newComment); // Thêm vào đầu danh sách
+
+            form.reset(); // Xóa nội dung trong ô nhập
+            Swal.fire({
+                title: "Đăng bình luận thành công!",
+                icon: "success",
+              });
+        } else {
+            alert("Lỗi: " + data.message);
+        }
+    })
+    .catch(error => console.error("Lỗi:", error));
+}
+</script>
+
+
+<script>
+  function deleteComment(commentId) {
+    Swal.fire({
+        title: "Bạn có chắc chắn muốn xóa bình luận này?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Xóa",
+        cancelButtonText: "Hủy"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch("./database/delete_comment.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "comment_id=" + commentId
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    document.getElementById("comment_" + commentId).remove();
+                    Swal.fire("Đã xóa!", "Bình luận đã được xóa.", "success");
+                } else {
+                    Swal.fire("Lỗi!", data.message, "error");
+                }
+            })
+            .catch(error => {
+                Swal.fire("Lỗi hệ thống!", "Vui lòng thử lại sau.", "error");
+                console.error("Lỗi:", error);
+            });
+        }
+    });
+}
+</script>
 
 </html>

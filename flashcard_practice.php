@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="account">
-        <a href="" class="nav-item user-inf">Userrr name</a>
+        <a href="./infouser.php" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">

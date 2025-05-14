@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
 });
 </script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,12 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/home.css">
-    <link rel="stylesheet" href="./assets/css/pomodoro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="./assets/css/font.css">
-    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/css/infoUser.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Pomodoro</title>
+    <title>Information User</title>
 </head>
 
 <body>
@@ -97,19 +97,22 @@ document.addEventListener("DOMContentLoaded", function () {
         </ul>
 
       </div>
+      
       <div class="nav_item-container">
         <a href="./todo_list.php" class="nav-item">TO-DO LIST</a>
       </div>
       <div class="logo">
-        <a href="./index.php"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
+        <a href="index.php"> <img src="./assets/img/logo.webp" alt="" class="logo-img"></a>
       </div>
 
       <div class="nav_item-container">
         <a href="./podomoro.php" class="nav-item">POMODORO</a>
       </div>
 
+  
+
       <div class="account">
-        <a href="./infouser.php" class="nav-item user-inf">User's name</a>
+        <a href="" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
@@ -121,64 +124,85 @@ document.addEventListener("DOMContentLoaded", function () {
     </nav>
   </header>
 
-  <div class="container_pomodoro">
-    <div class="container_pomodoro-item">
+    <div class="container_info_user">
+         <div class="container_boudery">
 
-        <div class="container_pomodoro-last">
-            <div class="timer-box">
-                <h2 class="timer-box-title">Phiên</h2>
-               <audio controls src="./assets/sound/5-second-countdown-with-sound-effect_KSUi0kN.mp3"></audio>
-                <div class="timer-primary">
-                    25 : 00
-                </div>
-    
-                <div class="timer-control">
-                    <button class="timer-control-btn start-btn">Bắt đầu</button>
-                    <button class="timer-control-btn pause-btn">Tạm dừng</button>
-                    <button class="timer-control-btn resume-btn">Tiếp tục</button>
-                </div>
-            </div>
-    
-            <div class="timer-modify">
-                
-                <div class="modify-item">
-                    <div class="modify-display">
-                      <input min="1" max="20" type="number" id="break"  class="modify-show modify-show-break"></input>
-                    </div>
-                    <p class="modify-title">Break length</p>
-                </div>
-    
-                <div class="modify-item">
-                    <div class="modify-display">
-                        <input min="5" max="60" type="number" id="session" class="modify-show modify-show-session"></input>
-                    </div>
-                    <p class="modify-title">Session length</p>
-                </div>
-    
-            </div>
-        </div>
+              <div class="container_img_info">
+                  <img class="img_info" src="http://localhost/NLCS/assets/img/infoUser.png" alt="">
+              </div>
 
+              <div class="container_content_info">
+                  <div class="container_inner_content_info">
+
+                      <div class="contain_img_avartar">
+                        <img class="img_avartar" src="./assets/img/avartarown.jpeg" alt="">
+                      </div>
+
+                      <div class="contain_info_personal">
+                          <h1 class="title_info">THÔNG TIN CÁ NHÂN</h1>
+                          
+                          <ul class="contain_main_info">
+                              <li class="main_info_item">
+                                  <span class="title_each_info">Tên đăng nhập </span>
+                                  <span class="content_each_info"> <?php echo $username ?></span>
+                              </li>
+
+                              <li class="main_info_item">
+                                  <span class="title_each_info">Email </span>
+                                  <span class="content_each_info"><?php echo $_SESSION['email'] ?></span>
+                              </li>
+
+                              <li class="main_info_item">
+                                   <span class="title_each_info">Ngày tạo tài khoản </span> 
+                                   <span class="content_each_info"> <?php echo $_SESSION['ND_NgayTaoTK'] ?> </span>
+                              </li>
+                          </ul>
+                      </div>
+
+                      <div class="contain_info_personal">
+                          <h1 class="title_info_activity">HOẠT ĐỘNG TRÊN TRANG WEB</h1>
+                          
+                          <div class="contain_info_activities">
+                              <div class="contain_info-item">
+                                  <h2 class="title_info_activity_item">Flashcard sets</h2>
+                                  <h3 class="info_activity">
+                                     <?php echo $_SESSION['flashcard_count']?>
+                                  </h3>
+                              </div>
+
+                              <div class="contain_info-item">
+                                  <h2 class="title_info_activity_item">Bforum Posts</h2>
+                                  <h3 class="info_activity">
+                                    <?php echo $_SESSION['post_count'] ?>
+                                  </h3>
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                      <div class="container_btn">
+                          <div class="btn_item_container">
+                            <button class="btn_item">
+                              <a class="btn_link" href="changepass.php">Đổi mật khẩu</a>
+                            </button>
+                          </div>
+
+                          <div class="btn_item_container">
+                            <button id="btn_logout" class="btn_item">
+                                Đăng xuất
+                            </button>
+                          </div>
+                      </div>
+
+
+
+
+                  </div>
+              </div>
+
+         </div>
     </div>
-        
-  </div>
-
-  <div id="toast">
-    <div class="toast toast--prompt">
-      <div class="toast__icon">
-        <i class="fa-solid fa-chalkboard-user"></i>
-      </div>
-  
-      <div class="toast__body">
-         <h3 class="toast__tittle">Mẹo</h3>
-         <p class="toast__msg">Để đạt hiệu quả cao nhất, hãy tắt điện thoại và để xa tầm với bạn nhé</p>
-      </div>
-  
-      <div id="close-toast" class="toast__close">
-        <i class="fa-solid fa-x"></i>
-      </div>
-    </div>
-  </div>
-
 
 
   <!-- Footer -->
@@ -261,9 +285,28 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </footer>
 
-<script src="./assets/js/pomodoro.js"></script>
-<script src="./assets/js/toast.js"></script>
-<script src="./assets/js/sendemail.js"></script>
 
 </body>
+<script src="./assets/js/sendemail.js"></script>
+    
+
+<script>
+    document.getElementById('btn_logout').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Bạn có chắc chắn muốn đăng xuất không?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Hủy bỏ'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = './database/logout.php';
+            }
+        });
+    });
+
+
+</script>
 </html>

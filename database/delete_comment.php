@@ -23,6 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["comment_id"])) {
         exit;
     }
 
+    if ($comment["uid"] != $uid) {
+        echo json_encode(["status" => "error", "message" => "Bạn không thể xóa bình luận của người khác."]);
+        exit;
+    }
 
     // Xóa bình luận
     $deleteQuery = $connect->prepare("DELETE FROM comments WHERE id = ?");

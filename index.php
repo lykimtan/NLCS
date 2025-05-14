@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
       <div class="account">
-        <a href="" class="nav-item user-inf">User's name</a>
+        <a href="./infouser.php" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <br>
 
             Áp dụng ngay phương pháp học Active Recall với công cụ 
-            <a class="link_inner-content" href="#">
+            <a class="link_inner-content" href="./flashcard.php">
               <i class="fa-regular fa-hand-point-right"></i> Flashcard <i class="fa-regular fa-hand-point-left"></i>
             </a>
           </p>
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <br>
             <br>
            Tạo ngay List công việc với
-            <a class="link_inner-content" href="#">
+            <a class="link_inner-content" href="./todo_list.php">
               <i class="fa-regular fa-hand-point-right"></i> To-do list <i class="fa-regular fa-hand-point-left"></i>
             </a>
           </p>
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <span class="text-content_description-list"><i class="fa-solid fa-check"></i>Giảm trì hoãn: Dễ dàng bắt đầu và hoàn thành nhiệm vụ.</span>
             <br>
             Thực hành ngay với
-            <a class="link_inner-content" href="#">
+            <a class="link_inner-content" href="./podomoro.php">
               <i class="fa-regular fa-hand-point-right"></i> Podomoro Technique <i class="fa-regular fa-hand-point-left"></i>
             </a>
           </p>
@@ -333,4 +333,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 <script src="./assets/js/sendemail.js"></script>
+<?php if (!isset($_SESSION['uid'])): ?>
+    <script>
+        localStorage.clear();
+    </script>
+<?php endif; ?>
 </html>

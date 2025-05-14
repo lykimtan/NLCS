@@ -176,11 +176,18 @@ h1 {
 
 .img_avartar {
     width: 40px;
+    border-radius: 50%;
+}
+.perwall {
+    display: inline-block;
+    transform: translateY(-13px);
+    color: white;
 }
 
-/* .logo_forum {
-    width: 80px;
-} */
+.perwall:hover {
+    color: rgb(93, 5, 5);
+} 
+
 
 .container_post {
     width: 90%;

@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/createPost.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Document</title>
+    <title>Trang cá nhân</title>
 </head>
 
 <body>
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <div class="account">
-        <a href="" class="nav-item user-inf">User's name</a>
+        <a href="infouser.php" class="nav-item user-inf">User's name</a>
         <img src="./assets/img/user_16111390.webp" alt="" class="acc-img">
 
         <ul class="account-list">
@@ -146,7 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div class="account_block">
             <a href="" class="acount-avatar_link">
-                <img class="img_avartar" src="./assets/img/user_16111390.webp" alt="">
+                <span class="perwall">Trang cá nhân</span>
+                <img class="img_avartar" src="./assets/img/avartarpost.png" alt="">
             </a>
         </div>
     </div>
@@ -227,56 +228,50 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="contain_comment">
                                 <h2 class="comment_title">COMMENT</h2>
 
-                                <div class="contain_content_comment">
+                                <div id="comment_list_<?= $row['id'] ?>" class="contain_content_comment">
                                     <?php
-                                    $post_id = $row['id'];
-                                    $comment_sql = "SELECT comments.id, comments.content, users.username, comments.created_at 
-                                                    FROM comments 
-                                                    JOIN users ON comments.uid = users.uid 
-                                                    WHERE comments.post_id = ? 
-                                                    ORDER BY comments.created_at DESC";
-                                    $stmt = $connect->prepare($comment_sql);
-                                    $stmt->bind_param("i", $post_id);
-                                    $stmt->execute();
-                                    $comments_result = $stmt->get_result();
+                                        $post_id = $row['id'];
+                                        $comment_sql = "SELECT comments.id, comments.content, comments.uid, users.username, comments.created_at 
+                                                        FROM comments 
+                                                        JOIN users ON comments.uid = users.uid 
+                                                        WHERE comments.post_id = ? 
+                                                        ORDER BY comments.created_at DESC";
+                                        $stmt = $connect->prepare($comment_sql);
+                                        $stmt->bind_param("i", $post_id);
+                                        $stmt->execute();
+                                        $comments_result = $stmt->get_result();
 
-                                    while ($comment = $comments_result->fetch_assoc()) {
-                                    ?>
-                                        <div class="comment-item">
-                                            <div class="comment_time_user">
-                                                <span class="comment_username"><strong><?php echo htmlspecialchars($comment['username']); ?>:</strong></span>
-                                                <span class="time_comment"><?php echo date("H:i d/m/Y", strtotime($comment['created_at'])); ?></span>
+                                        while ($comment = $comments_result->fetch_assoc()) {
+                                        ?>
+                                            <div class="comment-item" id="comment_<?= $comment['id'] ?>">
+                                                <div class="comment_time_user">
+                                                    <span class="comment_username"><strong><?php echo htmlspecialchars($comment['username']); ?>:</strong></span>
+                                                    <span class="time_comment"><?php echo date("H:i d/m/Y", strtotime($comment['created_at']));?></span>
+                                                </div>
+                                                <div class="comment_content_block">
+                                                    <span class="content_comment"><?php echo htmlspecialchars($comment['content']); ?></span>
+                                                </div>
+                                                
+                                  
+                                                    <button onclick="deleteComment(<?= $comment['id'] ?>)" class="delete-btn delete_btn_comment">
+                                                        <i class="fa-solid fa-delete-left"></i>
+                                                    </button>
+                                            
                                             </div>
-                                            <div class="comment_content_block">
-                                                 <span class="content_comment"><?php echo htmlspecialchars($comment['content']); ?></span>
-                                            </div>
-
-                                            <form method="POST" action="./database/delete_comment_per.php" class="delete-comment-form">
-                                                <input type="hidden" name="comment_id" value='<?php echo $comment['id']; ?>' >
-                                                <button type="submit" onclick="confirmDelete(<?php echo $comment['id']; ?>)" class="delete-btn delete_btn_comment">
-                                                     <i class="fa-solid fa-delete-left"></i>
-                                                </button>
-                                            </form>
-                                        </div>
                                     <?php } ?>
                                 </div>
 
-                                <form action="./database/handle_comment.php" class="input_comment" method="POST">
-                                    <input type="hidden" name="post_id" value="<?php echo $row['id']; ?>">
-                                    <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?? ''; ?>">
-                                    <input name="content" placeholder="Nhập bình luận ..." type="text" class="input_coment_item">
+                                <form class="input_comment" onsubmit="postComment(event, <?= $row['id'] ?>)">
+                                    <input type="hidden" name="post_id" value="<?= $row['id'] ?>">
+                                    <input type="hidden" name="uid" value="<?= $_SESSION['uid'] ?? '' ?>">
+                                    <input name="content" placeholder="Nhập bình luận ..." type="text" class="input_coment_item" required>
                                     <input class="sbcomment" type="submit" value="Đăng">
-                                </form>
+                               </form>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
             </div>
-
-        
-
-
-        
 
     </div>
 
@@ -421,9 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </footer>
 <script>
-
-
-                  
+       
     let createbtn = document.querySelector('.create-btn');
     let container_createPost = document.querySelector('.overlay');
     document.getElementById("cancelBtn").addEventListener("click", function(e) {
@@ -449,37 +442,81 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script src="./assets/js/handle_modal.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".delete-comment-form").forEach(form => {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault(); 
-            
-            let formData = new FormData(this);
-            let commentItem = this.closest(".comment-item");
 
-            fetch(this.action, {
+<script>
+  function postComment(event, postId) {
+    event.preventDefault(); // Ngăn chặn tải lại trang
+
+    let form = event.target;
+    let formData = new FormData(form);
+
+    fetch("./database/handle_comment.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            // Tạo bình luận mới và thêm vào danh sách
+            let commentList = document.getElementById("comment_list_" + postId);
+            let newComment = document.createElement("div");
+            newComment.classList.add("comment-item");
+            newComment.setAttribute("id", "comment_" + data.comment_id);
+            newComment.innerHTML = `
+                <span class="comment_username"><strong>${data.username}:</strong></span>
+                <span class="content_comment">${data.content}</span>
+                <button onclick="deleteComment(${data.comment_id})" class="delete-btn delete_btn_comment">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            `;
+            commentList.prepend(newComment); // Thêm vào đầu danh sách
+
+            form.reset(); // Xóa nội dung trong ô nhập
+            Swal.fire({
+                title: "Đăng bình luận thành công!",
+                icon: "success",
+              });
+        } else {
+            alert("Lỗi: " + data.message);
+        }
+    })
+    .catch(error => console.error("Lỗi:", error));
+}
+</script>
+
+
+<script>
+  function deleteComment(commentId) {
+    Swal.fire({
+        title: "Bạn có chắc chắn muốn xóa bình luận này?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Xóa",
+        cancelButtonText: "Hủy"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch("./database/delete_comment_per.php", {
                 method: "POST",
-                body: formData
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "comment_id=" + commentId
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                if (data.trim() === "success") {
-                    commentItem.remove(); 
+                if (data.status === "success") {
+                    document.getElementById("comment_" + commentId).remove();
+                    Swal.fire("Đã xóa!", "Bình luận đã được xóa.", "success");
                 } else {
-                    alert("Xóa bình luận thất bại!");
+                    Swal.fire("Lỗi!", data.message, "error");
                 }
             })
-            .catch(error => console.error("Lỗi:", error));
-        });
+            .catch(error => {
+                Swal.fire("Lỗi hệ thống!", "Vui lòng thử lại sau.", "error");
+                console.error("Lỗi:", error);
+            });
+        }
     });
-});
-function showSuccessModal(message) {
-    Swal.fire({
-        icon: "success",
-        title: message,
-        showConfirmButton: true,
-      });
 }
 </script>
 <script src="./assets/js/createPost_validate.js"></script>

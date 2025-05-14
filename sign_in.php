@@ -44,7 +44,7 @@
                         <button class="get-info_btn"><a class="get-info_link" href="./sign_up.php">Đăng ký</a></button>
                         <button type="submit" name="submit" class="get-info_btn">Đăng nhập</button>
                     </div>
-                    <p class="forgot_password"><a class="forgot_password-link" href="">Quên mật khẩu ?</a></p>
+                    <!-- <p class="forgot_password"><a class="forgot_password-link" href="">Quên mật khẩu ?</a></p> -->
                 </form>
 
             </div>

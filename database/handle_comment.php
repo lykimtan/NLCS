@@ -1,31 +1,42 @@
 <?php
-session_start();
-include 'connect.php'; 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require('connect.php');
 
-if (!isset($_SESSION["uid"])) {
-    die("Bạn cần đăng nhập!");
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['content'])) {
+    $post_id = $_POST['post_id'];
+    $uid = $_POST['uid'];
+    $content = trim($_POST['content']);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $uid = $_SESSION["uid"];
-    $post_id = intval($_POST["post_id"]); 
-    $content = trim($_POST["content"]);
-
-    if (empty($content)) {
-        echo "<script>alert('Bình luận không được để trống!'); window.history.back();</script>";
-        exit();
+    if (!$uid) {
+        echo json_encode(["status" => "error", "message" => "Bạn cần đăng nhập để bình luận."]);
+        exit;
     }
 
-    $stmt = $connect->prepare("INSERT INTO comments (post_id, uid, content) VALUES (?, ?, ?)");
+    $sql = "INSERT INTO comments (post_id, uid, content) VALUES (?, ?, ?)";
+    $stmt = $connect->prepare($sql);
     $stmt->bind_param("iis", $post_id, $uid, $content);
 
     if ($stmt->execute()) {
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
-        exit();
+        $comment_id = $stmt->insert_id; // Lấy ID của bình luận vừa chèn
+
+        // Lấy thông tin người dùng
+        $userQuery = $connect->prepare("SELECT username FROM users WHERE uid = ?");
+        $userQuery->bind_param("i", $uid);
+        $userQuery->execute();
+        $userResult = $userQuery->get_result();
+        $user = $userResult->fetch_assoc();
+
+        echo json_encode([
+            "status" => "success",
+            "message" => "Bình luận đã được đăng!",
+            "comment_id" => $comment_id,
+            "username" => $user['username'] ?? 'Người dùng',
+            "content" => htmlspecialchars($content)
+        ]);
     } else {
-        echo "<script>alert('Đã có lỗi xảy ra!'); window.history.back();</script>";
+        echo json_encode(["status" => "error", "message" => "Không thể đăng bình luận."]);
     }
+
+    $stmt->close();
+    $connect->close();
 }
 ?>

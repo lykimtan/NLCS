@@ -60,7 +60,7 @@
     </div>
 
 
-    <!-- <script>    
+<script>    
     document.getElementById("formreg").addEventListener("submit", function(event) {
     let email = document.querySelector(".email").value.trim();
     let username = document.getElementById("username").value.trim();
@@ -82,7 +82,7 @@
         alert(errorMessage); 
     }
 });
-</script> -->
+</script>
 
 <script>
         var inputfield = document.getElementById('password');
